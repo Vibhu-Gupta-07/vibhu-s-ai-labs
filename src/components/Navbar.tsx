@@ -12,11 +12,28 @@ const Navbar = () => {
     { href: "#contact", label: "Contact" },
   ];
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold text-foreground">
+          <a 
+            href="#" 
+            className="text-2xl font-bold text-foreground"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             Vibhu<span className="text-primary">.</span>
           </a>
 
@@ -26,12 +43,17 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleScrollTo(e, link.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 {link.label}
               </a>
             ))}
-            <Button variant="hero" size="sm">
+            <Button 
+              variant="hero" 
+              size="sm"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Start a Project
             </Button>
           </div>
@@ -53,13 +75,21 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
                   className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                  onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm" className="w-fit">
+              <Button 
+                variant="hero" 
+                size="sm" 
+                className="w-fit"
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsOpen(false);
+                }}
+              >
                 Start a Project
               </Button>
             </div>
