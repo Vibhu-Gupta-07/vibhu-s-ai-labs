@@ -121,14 +121,20 @@ const ContactSection = () => {
           {/* Alternative contact methods */}
           <div className="flex justify-center gap-6 mt-8">
             <a
-              href="mailto:hello@vibhu.dev"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=vibhugupta9125@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               <Mail className="w-5 h-5" />
               <span>Email</span>
             </a>
             <a
-              href="#"
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               <MessageSquare className="w-5 h-5" />

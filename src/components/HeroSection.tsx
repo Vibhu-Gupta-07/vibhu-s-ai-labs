@@ -60,11 +60,20 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in stagger-3 opacity-0">
-            <Button variant="hero" size="xl" className="group">
+            <Button 
+              variant="hero" 
+              size="xl" 
+              className="group"
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               View My Work
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="hero-outline" size="xl">
+            <Button 
+              variant="hero-outline" 
+              size="xl"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Start a Project
             </Button>
           </div>

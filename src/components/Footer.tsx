@@ -14,14 +14,16 @@ const Footer = () => {
 
           {/* Social links */}
           <div className="flex items-center gap-4">
-            {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Twitter, href: "#", label: "Twitter" },
+          {[
+              { icon: Github, href: "https://github.com/Vibhu-Gupta-07", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/vibhu-gupta01", label: "LinkedIn" },
+              { icon: Twitter, href: "https://x.com/vibhugupta9125", label: "Twitter" },
             ].map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="w-10 h-10 glass rounded-full flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
               >
